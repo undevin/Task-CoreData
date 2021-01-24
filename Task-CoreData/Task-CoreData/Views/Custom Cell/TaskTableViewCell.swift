@@ -40,11 +40,9 @@ class TaskTableViewCell: UITableViewCell {
         guard let task = task else { return }
         taskNameLabel.text = task.name
         taskDueDateLabel.text = DateFormatter.taskDueDate.string(from: task.dueDate ?? Date())
+    
+        let image = task.isComplete ? "complete" : "incomplete"
         
-        if task.isComplete {
-            completionButton.setBackgroundImage(UIImage(named: "complete"), for: .normal)
-        } else {
-            completionButton.setBackgroundImage(UIImage(named: "incomplete"), for: .normal)
-        }
+        completionButton.setImage(UIImage(named: image), for: .normal)
     }
 }//End of Class
